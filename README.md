@@ -75,18 +75,3 @@ plot_size_dist(scal_awl, scal_catch, tows, YEAR)
 plot_mw_rw(scal_awl, tows, Districts, YEAR)
 plot_mw_sh(scal_awl, tows, Districts, YEAR)
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-``` r
-summary(cars)
-```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub!
