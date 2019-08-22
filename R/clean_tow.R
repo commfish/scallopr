@@ -1,3 +1,19 @@
+#' clean_tow
+#'
+#' @param
+#' events_data  A data.frame of haul events from the weathervane scallop survey
+#'
+#'
+#' @return tows data.frame
+#' @export clean_tow
+#'
+#' @examples
+#'
+#' # Must have a defined analysis year
+#' # YEAR <- 2019
+#'
+#' tows <- clean_tow(events_data)
+#'
 clean_tow <- function(events_data){
 
   output_dir <- file.path("output", YEAR)
