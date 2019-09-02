@@ -9,11 +9,8 @@ tbl_blister(scal_awl, tows)
 \arguments{
 \item{tows}{}
 }
-\value{
-a .csv table of scallop blister percentage by bed
-}
 \description{
-tbl_blister
+Returns a .csv table of scallop blister percentage by bed
 }
 \examples{
 tbl_blister(scal_awl, tows)

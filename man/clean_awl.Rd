@@ -9,11 +9,8 @@ clean_awl(awl_data, tows)
 \arguments{
 \item{tows}{}
 }
-\value{
-clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
-}
 \description{
-clean_awl
+clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
 }
 \examples{
 

@@ -6,7 +6,7 @@
 #' @param abundance
 #' @param boot
 #'
-#' @return An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
+#' @description An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
 #' @export scallop_est
 #'
 #' @examples

@@ -3,7 +3,7 @@
 #' @param awl_data
 #' @param tows
 #'
-#' @return clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
+#' @description clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
 #' @export clean_awl
 #'
 #' @examples

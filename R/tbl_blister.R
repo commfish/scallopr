@@ -3,7 +3,7 @@
 #' @param scal_awl
 #' @param tows
 #'
-#' @return a .csv table of scallop blister percentage by bed
+#' @description  Returns a .csv table of scallop blister percentage by bed
 #' @export tbl_blister
 #'
 #' @examples

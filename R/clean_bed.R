@@ -2,7 +2,7 @@
 #'
 #' @param tows
 #'
-#' @return a .csv table of number of survey areas and number of tows by bed
+#' @description Returns a .csv table of number of survey areas and number of tows by bed
 #' @export clean_bed
 #'
 #' @examples

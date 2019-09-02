@@ -9,9 +9,6 @@ clean_bed(tows)
 \arguments{
 \item{tows}{}
 }
-\value{
-a .csv table of number of survey areas and number of tows by bed
-}
 \description{
-clean_bed
+Returns a .csv table of number of survey areas and number of tows by bed
 }

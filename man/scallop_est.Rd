@@ -9,11 +9,8 @@ scallop_est(scal_catch, beds, Q, abundance = TRUE, boot = TRUE)
 \arguments{
 \item{boot}{}
 }
-\value{
-An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
-}
 \description{
-scalllop_est
+An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
 }
 \examples{
 abund_est <- scallop_est(scal_catch, beds, 0.83, abundance = TRUE, boot = TRUE)
