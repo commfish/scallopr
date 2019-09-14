@@ -1,13 +1,19 @@
-#' clean_awl
+#' Clean survey biological data
 #'
-#' @param awl_data
-#' @param tows
+#' Filter and trim scallop biological data collected from each tow
+#' @param awl_data Data frame of biological data collected at each tow, downloaded from the survey database
 #'
-#' @description clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
+#' @param tows Data frame or tibble containing the fields "tow_id", "Bed", and "area_swept" (case sensitive), pertaining to tows made during the scallop survey year in question. See output of clean_tow().
+#'
+#' @details  Filters biological data (i.e. awl data) for succesful tows, converts weight units to pounds, and trims data to include: tow, shell height,
+#' size class, round weight, meat weight, sex, gonad condition, and presence of weak meats, worms, or mud blisters.
+#'
+#' @return Object of class data.frame containing the above mentioned variables. Result is also saved as a .csv file named 'awl_tbl.csv' in sub-directory named 'output'.
 #' @export clean_awl
 #'
 #' @examples
-#'
+#'clean_awl(awl_data, tows)
+
 clean_awl <- function(awl_data, tows){
 
   if(YEAR < 2019) {

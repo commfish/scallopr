@@ -1,20 +1,22 @@
-#' clean_tow
+#' Clean tow data
 #'
-#' @param
-#' events_data  A data.frame of haul events from the weathervane scallop survey
+#' Filter and extract information from haul data
+#' @param events_data  A data.frame of haul events from the weathervane scallop survey. Data format differs by survey year.
 #'
+#' @param year Four digit year. Default is object YEAR, specified in analysis script.
 #'
-#' @return tows data.frame
-#' @export clean_tow
+#' @details Filters tow (i.e., haul) data to only include tows with gear performance 1 (satisfactory) and haul type 10 (15 min, 1 nm), extracts tow ID, bed name, and area swept (distance converted to nm), and
+#' checks for duplicate tows per station.
 #'
+#' @return Object of class data.frame containing tow ID, abbreviate bed name, and area swept (sq nm) during each tow. Result is also saved as a .csv file named 'beds.csv' in sub-directory named 'output'.
+#' @export
 #' @examples
-#'
-#' # Must have a defined analysis year
-#' # YEAR <- 2019
-#'
-#' tows <- clean_tow(events_data)
-#'
-clean_tow <- function(events_data){
+#' clean_tow(events_data)
+#' clean_tow(events_data, 2019)
+
+clean_tow <- function(events_data, year=YEAR){
+
+  if(!exists("year")){stop("Must specify year")}
 
   output_dir <- file.path("output", YEAR)
 
@@ -24,7 +26,7 @@ clean_tow <- function(events_data){
     print("Good to go!")
   }
 
-  if(YEAR < 2019){
+  if(year < 2019){
     events_data %>%
       dplyr::filter(YEAR==YEAR,
         GEAR_PERFORMANCE_CODE_SW == 1,

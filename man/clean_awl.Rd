@@ -2,16 +2,25 @@
 % Please edit documentation in R/clean_awl.R
 \name{clean_awl}
 \alias{clean_awl}
-\title{clean_awl}
+\title{Clean survey biological data}
 \usage{
 clean_awl(awl_data, tows)
 }
 \arguments{
-\item{tows}{}
+\item{awl_data}{Data frame of biological data collected at each tow, downloaded from the survey database}
+
+\item{tows}{Data frame or tibble containing the fields "tow_id", "Bed", and "area_swept" (case sensitive), pertaining to tows made during the scallop survey year in question. See output of clean_tow().}
+}
+\value{
+Object of class data.frame containing the above mentioned variables. Result is also saved as a .csv file named 'awl_tbl.csv' in sub-directory named 'output'.
 }
 \description{
-clean_awl filters the awl data for successful tows,  changes units to pounds and saves a .csv dataframe to the output folder
+Filter and trim scallop biological data collected from each tow
+}
+\details{
+Filters biological data (i.e. awl data) for succesful tows, converts weight units to pounds, and trims data to include: tow, shell height,
+size class, round weight, meat weight, sex, gonad condition, and presence of weak meats, worms, or mud blisters.
 }
 \examples{
-
+clean_awl(awl_data, tows)
 }

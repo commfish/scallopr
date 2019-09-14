@@ -2,23 +2,26 @@
 % Please edit documentation in R/clean_catch.R
 \name{clean_catch}
 \alias{clean_catch}
-\title{Title}
+\title{Clean catch data}
 \usage{
-clean_catch(catch_data, tows, YEAR)
+clean_catch(catch_data, tows, year = YEAR)
 }
 \arguments{
-\item{YEAR}{}
+\item{catch_data}{Survey catch data, downloaded from survey database}
+
+\item{tows}{Data frame or tibble containing the fields "tow_id", "Bed", and "area_swept" (case sensitive), pertaining to tows made during the scallop survey year in question. See output of clean_tow().}
+
+\item{year}{Four digit year. Default is object YEAR, specified in analysis script.}
 }
 \value{
-scal_catch data.frame
+Tibble including tow ID, count of scallops caught, weight in pounds, size class, abbreviated bed name, and area swept (sq nm) during tow. Ignore warning messages regarding to class of joining variables, and mutation of grouping variables.
 }
 \description{
-Title
+Filter and summarize catch data specific to scallops
+}
+\details{
+Filters and summarizes survey catch data to include the number and weight (lbs) of scallops in both size classes (i.e., large and small) for each tow.
 }
 \examples{
-
-# year of analysis (from "global" head matter in analysis script)
-# YEAR <- 2019
-
 scal_catch <- clean_catch(catch_data, tows, YEAR)
 }

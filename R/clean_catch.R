@@ -1,19 +1,23 @@
-#' Title
+#' Clean catch data
 #'
-#' @param catch_data
-#' @param tows
-#' @param YEAR
+#' Filter and summarize catch data specific to scallops
+#' @param catch_data Survey catch data, downloaded from survey database
 #'
-#' @return scal_catch data.frame
+#' @param tows Data frame or tibble containing the fields "tow_id", "Bed", and "area_swept" (case sensitive), pertaining to tows made during the scallop survey year in question. See output of clean_tow().
+#'
+#' @param year Four digit year. Default is object YEAR, specified in analysis script.
+#'
+#' @details Filters and summarizes survey catch data to include the number and weight (lbs) of scallops in both size classes (i.e., large and small) for each tow.
+#'
+#' @return Tibble including tow ID, count of scallops caught, weight in pounds, size class, abbreviated bed name, and area swept (sq nm) during tow. Ignore warning messages regarding to class of joining variables, and mutation of grouping variables.
 #' @export clean_catch
 #'
 #' @examples
-#'
-#' # year of analysis (from "global" head matter in analysis script)
-#' # YEAR <- 2019
-#'
 #' scal_catch <- clean_catch(catch_data, tows, YEAR)
-clean_catch <- function(catch_data, tows, YEAR){
+
+clean_catch <- function(catch_data, tows, year=YEAR){
+
+  if(!exists("year")){stop("Must specify year")}
 
   if(YEAR < 2019){
     catch_data %>%
@@ -54,7 +58,7 @@ clean_catch <- function(catch_data, tows, YEAR){
       dplyr::group_by(tow_id, size) %>%
       dplyr::summarize(count = sum(count), wt_lb = sum(wt_lb)) %>%
       dplyr::right_join(expand.grid(size = c("small", "large"),
-                                    tow_id = tows$tow_id)) %>%
+                                    tow_id = tows$tow_id)) %>% # fill in data for tows that may not have caught a size catagory
       dplyr::mutate_if(is.numeric, funs(replace(., is.na(.), 0))) %>%
       # within(count[size == "all"] <- count[size == "small"] + count[size == "large"]) %>% # add "all" to counts
       # within(wt_lb[size == "all"] <- wt_lb[size == "small"] + wt_lb[size == "large"]) %>% # add "all" to wts

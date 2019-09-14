@@ -2,13 +2,23 @@
 % Please edit documentation in R/clean_bed.R
 \name{clean_bed}
 \alias{clean_bed}
-\title{clean_bed}
+\title{Clean bed data}
 \usage{
 clean_bed(tows)
 }
 \arguments{
-\item{tows}{}
+\item{tows}{Data frame or tibble containing the fields "tow_id", "Bed", and "area_swept" (case sensitive), pertaining to tows made during the scallop survey year in question. See output of clean_tow().}
+}
+\value{
+Object of class data.frame containing abbreviate bed name, bed area (sq nm), number of station grids, and number of tows within each bed during the survey year. Result is also saved as a .csv file named 'beds.csv' in sub-directory named 'output'.
+ Ignore warning messages regarding to class of joining variables.
 }
 \description{
-Returns a .csv table of number of survey areas and number of tows by bed
+Summarize surveyed bed data
+}
+\details{
+Joins bed area data (see ?area for details) with survey tow data (see output of clean_tow()), and summarizes result.
+}
+\examples{
+clean_bed(tows)
 }

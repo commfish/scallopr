@@ -2,24 +2,26 @@
 % Please edit documentation in R/clean_tow.R
 \name{clean_tow}
 \alias{clean_tow}
-\title{clean_tow}
+\title{Clean tow data}
 \usage{
-clean_tow(events_data)
+clean_tow(events_data, year = YEAR)
 }
 \arguments{
-\item{events_data}{A data.frame of haul events from the weathervane scallop survey}
+\item{events_data}{A data.frame of haul events from the weathervane scallop survey. Data format differs by survey year.}
+
+\item{year}{Four digit year. Default is object YEAR, specified in analysis script.}
 }
 \value{
-tows data.frame
+Object of class data.frame containing tow ID, abbreviate bed name, and area swept (sq nm) during each tow. Result is also saved as a .csv file named 'beds.csv' in sub-directory named 'output'.
 }
 \description{
-clean_tow
+Filter and extract information from haul data
+}
+\details{
+Filters tow (i.e., haul) data to only include tows with gear performance 1 (satisfactory) and haul type 10 (15 min, 1 nm), extracts tow ID, bed name, and area swept (distance converted to nm), and
+checks for duplicate tows per station.
 }
 \examples{
-
-# Must have a defined analysis year
-# YEAR <- 2019
-
-tows <- clean_tow(events_data)
-
+clean_tow(events_data)
+clean_tow(events_data, 2019)
 }
