@@ -49,6 +49,6 @@ clean_awl <- function(awl_data, tows){
                 worm = shell_worm,
                 mud = mud_blister)  -> x
   }
-  write_csv(x, here::here(paste0("output/",YEAR,"/awl_tbl.csv")))
+  write_csv(x, paste0("./output/",YEAR,"/awl_tbl.csv"))
   x
 }

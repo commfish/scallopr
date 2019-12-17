@@ -61,6 +61,6 @@ clean_tow <- function(events_data, year=YEAR){
   }
 
   # save the output
-  write_csv(x, here::here(paste0("output/", YEAR, "/tows.csv")))
+  write_csv(x, paste0("./output/", YEAR, "/tows.csv"))
   x
 }

@@ -3,15 +3,16 @@
 #' @param scal_catch
 #' @param tows
 #' @param YEAR
+#' @param Bed_levels
 #'
 #' @return
 #' @export plot_catch_rate
 #'
 #' @examples
-#' plot_catch_rate(scal_catch, tows, YEAR)
+#' plot_catch_rate(scal_catch, tows, YEAR, Bed_levels)
 #' @description Plot survey catch rates for large and small scallops by bed.
 #' Saves output to the appropriate figs folder.
-plot_catch_rate <- function(scal_catch, tows, YEAR){
+plot_catch_rate <- function(scal_catch, tows, YEAR, Bed_levels){
 
   output_dir <- file.path("figs", YEAR)
 

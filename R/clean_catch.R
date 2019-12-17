@@ -69,7 +69,7 @@ clean_catch <- function(catch_data, tows, year=YEAR){
 
   }
 
-  write_csv(x, here::here(paste0("output/",YEAR,"/scal_catch.csv")))
+  write_csv(x, paste0("./output/",YEAR,"/scal_catch.csv"))
   x
 
 }

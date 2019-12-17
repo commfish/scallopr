@@ -1,18 +1,20 @@
-#' scalllop_est
+#' Estimate Abundance or Biomass
 #'
-#' @param scal_catch
-#' @param beds
-#' @param Q
-#' @param abundance
-#' @param boot
+#' Estimated abundance or biomass summary table by bed
+#' @param scal_catch Output of `clean_catch()`. See function help file.
+#' @param beds Output of `clean_bed()`. See function help file.
+#' @param Q Dredge efficiency (i.e., proportion of scallop caught by dredge). Default = 0.83.
+#' @param abundance Logical, default = TRUE. If TRUE, estimates abundance. If FALSE, estimates biomass.
+#' @param boot Logical, default = TRUE. If TRUE, estimates bootstrap confidence intervals (n = 1000). If FALSE, estimates lognormal confidence intervals.
 #'
-#' @description An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
+#' @details An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs.
 #' @export scallop_est
 #'
 #' @examples
 #' abund_est <- scallop_est(scal_catch, beds, 0.83, abundance = TRUE, boot = TRUE)
 #' biom_est <- scallop_est(scal_catch, beds, 0.83, abundance = False, boot = TRUE)
-scallop_est <- function(scal_catch, beds, Q, abundance = TRUE, boot = TRUE){
+#'
+scallop_est <- function(scal_catch, beds, Q = 0.83, abundance = TRUE, boot = TRUE){
 
   if(abundance){
     scal_catch %>%
@@ -23,7 +25,7 @@ scallop_est <- function(scal_catch, beds, Q, abundance = TRUE, boot = TRUE){
       mutate(tows = n()) %>%
       ungroup() -> data
 
-    filename = here::here(paste0("output/", YEAR, "/scal_abund_estimates.csv"))
+    filename = paste0("./output/", YEAR, "/scal_abund_estimates.csv")
 
   } else {
 
@@ -35,7 +37,7 @@ scallop_est <- function(scal_catch, beds, Q, abundance = TRUE, boot = TRUE){
       mutate(tows = n()) %>%
       ungroup() -> data
 
-    filename = here::here(paste0("output/", YEAR, "/scal_biom_estimates.csv"))
+    filename = paste0("./output/", YEAR, "/scal_biom_estimates.csv")
   }
 
   # calculate base estimate with lognormal CIs

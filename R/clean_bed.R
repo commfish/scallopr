@@ -20,7 +20,7 @@ clean_bed <- function(tows){
     rename(tows = n) %>%
     mutate(Bed = factor(Bed)) -> x
 
-  write_csv(x, here::here(paste0("output/",YEAR,"/beds.csv")))
+  write_csv(x, paste0("./output/",YEAR,"/beds.csv"))
   x
 
 }
