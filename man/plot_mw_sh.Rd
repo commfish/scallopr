@@ -2,17 +2,23 @@
 % Please edit documentation in R/plot_mw_sh.R
 \name{plot_mw_sh}
 \alias{plot_mw_sh}
-\title{plot_mw_sh}
+\title{Plot Meat Weight ~ Shell height}
 \usage{
 plot_mw_sh(scal_awl, tows, Districts, YEAR)
 }
 \arguments{
-\item{YEAR}{}
+\item{scal_awl}{Output of `clean_awl()`. See function help file.}
+
+\item{tows}{Output of `clean_tow()`. See function help file.}
+
+\item{YEAR}{Survey year. Default is defined in global options.}
 }
 \description{
-Plot scallop meat weight/shell height relationships, by bed.
-Saves output to the appropriate figs folder.
+Scatter plot of meat weight as a function of shell height.
+}
+\details{
+Creates a sactter plot of meat weight as a function of shell height. Lines are drawn using `geom_smooth()` and respresent a genral additive model y ~ s(x) fit using cubic regression splines. Saves output to the appropriate figs folder.
 }
 \examples{
-plot_mw_sh(scal_awl, tows, Districts, YEAR)
+plot_mw_sh(scal_awl, tows, YEAR)
 }

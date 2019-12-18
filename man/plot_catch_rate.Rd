@@ -2,17 +2,25 @@
 % Please edit documentation in R/plot_catch_rate.R
 \name{plot_catch_rate}
 \alias{plot_catch_rate}
-\title{plot_catch_rate}
+\title{Plot catch rate}
 \usage{
-plot_catch_rate(scal_catch, tows, YEAR)
+plot_catch_rate(scal_catch, tows, YEAR = YEAR, Bed_levels = Bed_levels)
 }
 \arguments{
-\item{YEAR}{}
+\item{scal_catch}{Output of `clean_catch()`. See function help file.}
+
+\item{tows}{Output of `clean_tow()`. See function help file.}
+
+\item{YEAR}{Survey year. Default is defined in global options.}
+
+\item{Bed_levels}{Factor levels of bed for drawing plot. Default is defined in global options.}
 }
 \description{
-Plot survey catch rates for large and small scallops by bed.
-Saves output to the appropriate figs folder.
+Boxplot of number of scallops caught per tow, by bed.
+}
+\details{
+Plots survey catch rates for large and small scallops by bed. Saves output to the appropriate 'figs' folder.
 }
 \examples{
-plot_catch_rate(scal_catch, tows, YEAR)
+plot_catch_rate(scal_catch, tows, YEAR, Bed_levels)
 }

@@ -2,17 +2,23 @@
 % Please edit documentation in R/plot_mw_rw.R
 \name{plot_mw_rw}
 \alias{plot_mw_rw}
-\title{plot_mw_rw}
+\title{Plot Meat Weight ~ Round Weight}
 \usage{
-plot_mw_rw(scal_awl, tows, Districts, YEAR)
+plot_mw_rw(scal_awl, tows, YEAR)
 }
 \arguments{
-\item{YEAR}{}
+\item{scal_awl}{Output of `clean_awl()`. See function help file.}
+
+\item{tows}{Output of `clean_tow()`. See function help file.}
+
+\item{YEAR}{Survey year. Default is defined in global options.}
 }
 \description{
-Plot scallop meat weight/round weight relationships, by bed.
-Saves output to the appropriate figs folder.
+Scatter plot of meat weight as a function of round weight.
+}
+\details{
+Creates a sactter plot of meat weight as a function of round weight. Lines are drawn using `geom_smooth()` and respresent a genral additive model y ~ s(x) fit using cubic regression splines. Saves output to the appropriate figs folder.
 }
 \examples{
-plot_mw_rw(scal_awl, tows, Districts, YEAR)
+plot_mw_rw(scal_awl, tows, YEAR)
 }

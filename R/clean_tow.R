@@ -14,11 +14,11 @@
 #' clean_tow(events_data)
 #' clean_tow(events_data, 2019)
 
-clean_tow <- function(events_data, year=YEAR){
+clean_tow <- function(events_data, year = YEAR){
 
   if(!exists("year")){stop("Must specify year")}
 
-  output_dir <- file.path("output", YEAR)
+  output_dir <- file.path("./output", YEAR)
 
   if (!dir.exists(output_dir)){
     dir.create(output_dir)
@@ -61,6 +61,6 @@ clean_tow <- function(events_data, year=YEAR){
   }
 
   # save the output
-  write_csv(x, paste0("./output/", YEAR, "/tows.csv"))
+  write_csv(x, paste0(output_dir, "/tows.csv"))
   x
 }

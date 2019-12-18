@@ -2,17 +2,30 @@
 % Please edit documentation in R/scallop_est.R
 \name{scallop_est}
 \alias{scallop_est}
-\title{scalllop_est}
+\title{Estimate Abundance or Round Biomass}
 \usage{
-scallop_est(scal_catch, beds, Q, abundance = TRUE, boot = TRUE)
+scallop_est(scal_catch, beds, Q = 0.83, abundance = TRUE,
+  boot = TRUE)
 }
 \arguments{
-\item{boot}{}
+\item{scal_catch}{Output of `clean_catch()`. See function help file.}
+
+\item{beds}{Output of `clean_bed()`. See function help file.}
+
+\item{Q}{Dredge efficiency (i.e., proportion of scallop caught by dredge). Default = 0.83.}
+
+\item{abundance}{Logical, default = TRUE. If TRUE, estimates abundance. If FALSE, estimates biomass (i.e., round weight).}
+
+\item{boot}{Logical, default = TRUE. If TRUE, estimates bootstrap confidence intervals (n = 1000). If FALSE, estimates lognormal confidence intervals.}
 }
 \description{
-An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs can be estimated.
+Estimated abundance or biomass summary table by bed
+}
+\details{
+An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs.
 }
 \examples{
 abund_est <- scallop_est(scal_catch, beds, 0.83, abundance = TRUE, boot = TRUE)
 biom_est <- scallop_est(scal_catch, beds, 0.83, abundance = False, boot = TRUE)
+
 }

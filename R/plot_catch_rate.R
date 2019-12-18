@@ -1,18 +1,19 @@
-#' plot_catch_rate
+#' Plot catch rate
 #'
-#' @param scal_catch
-#' @param tows
-#' @param YEAR
-#' @param Bed_levels
+#' Boxplot of number of scallops caught per tow, by bed.
+#' @param scal_catch Output of `clean_catch()`. See function help file.
+#' @param tows Output of `clean_tow()`. See function help file.
+#' @param YEAR Survey year. Default is defined in global options.
+#' @param Bed_levels Factor levels of bed for drawing plot. Default is defined in global options.
 #'
 #' @return
+#' @details Plots survey catch rates for large and small scallops by bed. Saves output to the appropriate 'figs' folder.
 #' @export plot_catch_rate
 #'
 #' @examples
 #' plot_catch_rate(scal_catch, tows, YEAR, Bed_levels)
-#' @description Plot survey catch rates for large and small scallops by bed.
-#' Saves output to the appropriate figs folder.
-plot_catch_rate <- function(scal_catch, tows, YEAR, Bed_levels){
+
+plot_catch_rate <- function(scal_catch, tows, YEAR = YEAR, Bed_levels = Bed_levels){
 
   output_dir <- file.path("figs", YEAR)
 

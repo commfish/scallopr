@@ -2,22 +2,25 @@
 % Please edit documentation in R/meat_wt_est.R
 \name{meat_wt_est}
 \alias{meat_wt_est}
-\title{meat_wt_est}
+\title{Estimate Meat Biomass}
 \usage{
-meat_wt_est(scal_awl, scal_catch, beds, Q, boot = TRUE)
+meat_wt_est(scal_awl, scal_catch, beds, Q = 0.83, boot = TRUE)
 }
 \arguments{
-\item{boot}{}
-}
-\value{
-returns an estimate of meat weight with  bootstrap confidence intervals
+\item{scal_catch}{Output of `clean_catch()`. See function help file.}
+
+\item{beds}{Output of `clean_bed()`. See function help file.}
+
+\item{Q}{Dredge efficiency (i.e., proportion of scallop caught by dredge). Default = 0.83.}
+
+\item{boot}{Logical, default = TRUE. If TRUE, estimates bootstrap confidence intervals (n = 1000). If FALSE, estimates lognormal confidence intervals.}
 }
 \description{
-meat_wt_est
+Estimated total meat weight by bed
+}
+\details{
+Tibble and .csv file that includes bed, number of towas, meat biomass estimate, standard error of the estimate, CV of the estimate, and lower and upper 95% confidence intervals. CIs are either based on a lognormal distribution or bootstrap resampling (1000 samples).
 }
 \examples{
-# Must have a defined analysis year that is assigned in the "Globals" section
-# Year <- 2019
 meat_wt_est(scal_awl, scal_catch, beds, Q, boot = TRUE)
-
 }

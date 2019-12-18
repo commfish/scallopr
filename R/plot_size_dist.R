@@ -1,19 +1,20 @@
-#' plot_size_dist
+#' Plot scallop size distribution
 #'
-#' @param scal_awl
-#' @param scal_catch
-#' @param tows
-#' @param YEAR
+#' Shell height composition, by bed.
+#' @param scal_awl Output of `clean_awl()`. See function help file.
+#' @param scal_catch Output of `clean_catch()`. See function help file.
+#' @param tows Output of `clean_tow()`. See function help file.
+#' @param YEAR Survey year. Default is defined in global options.
+#' @param binwidth Histogram size bin width. Default = 2 mm.
 #'
 #' @return
+#' @details Plot scallop size distributions weighted by sample sizes, by bed. Saves output to the appropriate 'figs' folder.
 #' @export plot_size_dist
 #'
 #' @examples
 #' plot_size_dist(scal_awl, scal_catch, tows, YEAR)
-#' @description Plot scallop size distributions weighted by sample sizes, by bed.
-#' Saves output to the appropriate figs folder.
-#'
-plot_size_dist <- function(scal_awl, scal_catch, tows, YEAR){
+
+plot_size_dist <- function(scal_awl, scal_catch, tows, YEAR, binwidth = 2){
 
   scal_catch %>%
     ungroup %>%
@@ -32,7 +33,7 @@ plot_size_dist <- function(scal_awl, scal_catch, tows, YEAR){
     add_count(Bed) %>%
     mutate(label = paste0(Bed, ": N = ", n)) %>%
     ggplot(aes(sh, weight=wt)) +
-    geom_histogram(color = "black", fill = "darkgray", bins = 75) +
+    geom_histogram(color = "black", fill = "darkgray", binwidth = binwidth) +
     facet_wrap(~Bed, ncol=2, dir = 'v', scales = 'free_y') +
     xlab("\nShell height (mm)") +
     scale_y_continuous("Weighted shell height counts\n", label = scales::comma) +

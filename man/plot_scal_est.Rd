@@ -2,16 +2,22 @@
 % Please edit documentation in R/plot_scal_est.R
 \name{plot_scal_est}
 \alias{plot_scal_est}
-\title{plot_scal_est}
+\title{Plot Aundance or Biomass Estimates}
 \usage{
 plot_scal_est(scal_est, abundance = TRUE, YEAR)
 }
 \arguments{
-\item{YEAR}{}
+\item{scal_est}{Output of `scallop_est()`. See function help file.}
+
+\item{abundance}{Logical, default = TRUE. If TRUE, plots as abundance. If FALSE, plots as round weight biomass.}
+
+\item{YEAR}{Survey year. Default is defined in global options.}
 }
 \description{
-Plot scallop abundance (abundance = TRUE) or biomass (abundance = FALSE) estimates by bed.
-Saves output to the appropriate figs folder.
+Plots abundance or round weight biomass estimates with 95% confidence intervals.
+}
+\details{
+Plots point estimates and confidence intervals of abundance (abundance = TRUE) or biomass (abundance = FALSE). Saves output to the appropriate 'figs' folder.
 }
 \examples{
 plot_scal_est(scal_est, abundance = TRUE, YEAR)

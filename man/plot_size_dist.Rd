@@ -2,16 +2,26 @@
 % Please edit documentation in R/plot_size_dist.R
 \name{plot_size_dist}
 \alias{plot_size_dist}
-\title{plot_size_dist}
+\title{Plot scallop size distribution}
 \usage{
-plot_size_dist(scal_awl, scal_catch, tows, YEAR)
+plot_size_dist(scal_awl, scal_catch, tows, YEAR, binwidth = 2)
 }
 \arguments{
-\item{YEAR}{}
+\item{scal_awl}{Output of `clean_awl()`. See function help file.}
+
+\item{scal_catch}{Output of `clean_catch()`. See function help file.}
+
+\item{tows}{Output of `clean_tow()`. See function help file.}
+
+\item{YEAR}{Survey year. Default is defined in global options.}
+
+\item{binwidth}{Histogram size bin width. Default = 2 mm.}
 }
 \description{
-Plot scallop size distributions weighted by sample sizes, by bed.
-Saves output to the appropriate figs folder.
+Shell height composition, by bed.
+}
+\details{
+Plot scallop size distributions weighted by sample sizes, by bed. Saves output to the appropriate 'figs' folder.
 }
 \examples{
 plot_size_dist(scal_awl, scal_catch, tows, YEAR)

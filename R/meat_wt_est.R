@@ -1,20 +1,18 @@
-#' meat_wt_est
+#' Estimate Meat Biomass
 #'
-#' @param scal_awl
-#' @param scal_catch
-#' @param beds
-#' @param Q
-#' @param boot
+#' Estimated total meat weight by bed
+#' @param scal_catch Output of `clean_catch()`. See function help file.
+#' @param beds Output of `clean_bed()`. See function help file.
+#' @param Q Dredge efficiency (i.e., proportion of scallop caught by dredge). Default = 0.83.
+#' @param boot Logical, default = TRUE. If TRUE, estimates bootstrap confidence intervals (n = 1000). If FALSE, estimates lognormal confidence intervals.
 #'
-#' @return returns an estimate of meat weight with  bootstrap confidence intervals
+#' @details Tibble and .csv file that includes bed, number of towas, meat biomass estimate, standard error of the estimate, CV of the estimate, and lower and upper 95% confidence intervals. CIs are either based on a lognormal distribution or bootstrap resampling (1000 samples).
 #' @export meat_wt_est
 #'
 #' @examples
-#' # Must have a defined analysis year that is assigned in the "Globals" section
-#' # Year <- 2019
 #' meat_wt_est(scal_awl, scal_catch, beds, Q, boot = TRUE)
-#'
-meat_wt_est <- function(scal_awl, scal_catch, beds, Q, boot = TRUE){
+
+meat_wt_est <- function(scal_awl, scal_catch, beds, Q = 0.83, boot = TRUE){
 
   scal_catch %>%
     filter(Size == "large") %>%
@@ -101,6 +99,6 @@ meat_wt_est <- function(scal_awl, scal_catch, beds, Q, boot = TRUE){
     est
   }
 
-  write_csv(est, here::here(paste0("output/", YEAR, "/mwt_biom_est.csv")))
+  write_csv(est, paste0("./output/", YEAR, "/mwt_biom_est.csv"))
   est
 }

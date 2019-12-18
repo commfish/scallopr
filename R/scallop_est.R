@@ -1,10 +1,10 @@
-#' Estimate Abundance or Biomass
+#' Estimate Abundance or Round Biomass
 #'
 #' Estimated abundance or biomass summary table by bed
 #' @param scal_catch Output of `clean_catch()`. See function help file.
 #' @param beds Output of `clean_bed()`. See function help file.
 #' @param Q Dredge efficiency (i.e., proportion of scallop caught by dredge). Default = 0.83.
-#' @param abundance Logical, default = TRUE. If TRUE, estimates abundance. If FALSE, estimates biomass.
+#' @param abundance Logical, default = TRUE. If TRUE, estimates abundance. If FALSE, estimates biomass (i.e., round weight).
 #' @param boot Logical, default = TRUE. If TRUE, estimates bootstrap confidence intervals (n = 1000). If FALSE, estimates lognormal confidence intervals.
 #'
 #' @details An estimate of scallop abundance (numbers or weight) with bootstrap or lognormal CIs.
