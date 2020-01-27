@@ -7,7 +7,7 @@
 #'
 #' @details Observed sex ratios (percent of scallops ≥100 mm). N denotes the sample size.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_sex(scal_awl, tows)
 tbl_sex <- function(scal_awl, tows){

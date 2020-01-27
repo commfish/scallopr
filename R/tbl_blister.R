@@ -7,7 +7,7 @@
 #'
 #' @details Writes a summary table on the proportion of sampled shells (N) with 0%, 1-24%, 25-49%, 50-74%, and 75-100% mud blister coverage.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_blister(scal_awl, tows)
 

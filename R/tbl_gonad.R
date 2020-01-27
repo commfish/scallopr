@@ -7,7 +7,7 @@
 #'
 #' @details Observed gonad status by bed. Values are percent of sampled scallops ≥100 mm. N denotes the sample size.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_gonad(scal_awl, tows)
 tbl_gonad <- function(scal_awl, tows){

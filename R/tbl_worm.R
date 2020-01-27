@@ -7,7 +7,7 @@
 #'
 #' @details Area of scallop shells ≥100 mm with evidence of boring worms, by bed. N denotes the sample size.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_worm(scal_awl, tows)
 tbl_worm <- function(scal_awl, tows){

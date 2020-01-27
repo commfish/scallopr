@@ -39,7 +39,7 @@ plot_size_dist <- function(scal_awl, scal_catch, tows, YEAR, binwidth = 2){
     scale_y_continuous("Weighted shell height counts\n", label = scales::comma) +
     theme(strip.background = element_blank()) -> x
 
-  ggsave(here::here(paste0("figs/", YEAR, "/size_dist.png")), plot = x, width = 6.5, height = 8)
+  ggsave(here::here(paste0("figs/", YEAR, "/size_dist.png")), plot = x, width = 6.5, height = 4)
 
   x
 }

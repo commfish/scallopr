@@ -7,7 +7,7 @@
 #'
 #' @details Number of stations and tows for surveyed beds in the 2017 statewide scallop dredge survey with total scallop catches, average scallop densities and corresponding CVs by scallop size class.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_catch <- tbl_catch(scal_catch, beds)
 tbl_catch <- function(scal_catch, beds){

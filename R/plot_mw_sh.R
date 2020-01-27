@@ -12,7 +12,7 @@
 #' @examples
 #' plot_mw_sh(scal_awl, tows, YEAR)
 
-plot_mw_sh <- function(scal_awl, tows, Districts, YEAR){
+plot_mw_sh <- function(scal_awl, tows, YEAR){
   scal_awl %>%
     filter(sh >= 100, !is.na(mwt_lb), mwt_lb * rwt_lb > 0, mwt_lb < rwt_lb) %>%
     left_join(tows, by = "tow_id") %>%

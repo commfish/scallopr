@@ -4,7 +4,7 @@
 \alias{plot_mw_sh}
 \title{Plot Meat Weight ~ Shell height}
 \usage{
-plot_mw_sh(scal_awl, tows, Districts, YEAR)
+plot_mw_sh(scal_awl, tows, YEAR)
 }
 \arguments{
 \item{scal_awl}{Output of `clean_awl()`. See function help file.}

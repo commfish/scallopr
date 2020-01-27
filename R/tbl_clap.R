@@ -7,7 +7,7 @@
 #'
 #' @details Bed percentages of clappers and weak meats from survey data. Meat condition was assessed only for subsampled large scallops. N denotes the sample size.
 #' @return Tibble and .csv file
-#'
+#' @export
 #' @examples
 #' tbl_clap(scal_catch, scal_awl)
 
